@@ -1,0 +1,136 @@
+
+By naming it as \emph{case attraction}, grammarians and philologists have
+assumed, since~\textcite{Lancelot1658,Lancelot1709} extended the term used
+by~\textcite{Sanchez1587} for case attraction of relative pronouns,
+that~\ref{gloss:attr} is some type of deviation from the general rule
+of agreement\slash{}concord in AG (and Classical Latin, for that matter).
+Since then, however, the cause for the variation of constructions with~\ref{gloss:attr} and
+without~\ref{gloss:noattr} case attraction remained largely unexplained.
+Authors have only tentatively drawn contexts in which a certain option is more
+likely to occur, a handful of times assuming that such correlation between
+context and resolution was causal, often due to \emph{emphasis} and
+\emph{focus}, without any empirical evidence for the relation between
+\emph{emphasis} and attraction.\footnote{%
+	\textcite[462]{Buttmann1826},~\textcite{Hocheder1833},~\textcite[II pp.\
+		24ff.]{KG},~\textcite[774]{Cooper1997},
+	and~\textcite[2500--1]{Cooper2002}.
+}
+Other works have simply asserted its existence.\footnote{
+	\textcite[203]{Goodwin1900},
+	\textcite[643]{Stahl1907},
+	\textcite[II p.\ 368]{Schwyzer1950},
+	\textcite[p.\ 278, p.\ 440]{Smyth1956},
+	\textcite[105]{Rijksbaron2002},
+	\textcite{Napoli2014},
+	\textcite[587]{Boas2019}.
+}
+% I would enroll my own works (\cite{Geraldes2020,Geraldes2021,Geraldes2025}) in
+% the first group, as I mainly argued for a more precise system of correlations,
+% providing quantitative evidence for such.
+
+When it came the time for general linguists to analyse AG case agreement
+patterns shown in the previous examples, their approach was rather
+different, as they bundled together what a philologist would call ``normal''
+case agreement and case attraction.
+Since~\textcite{Lakoff1970,Andrews1971,Quicoli1982}, the works dealing with AG
+case agreement patterns have been trying to provide a structural explanation for
+\emph{how} non-local case concord is configured in the syntax.
+Most recently, \textcite{Sevdali2013,Sevdali2013b} (drawing part of their
+analysis from the works of~\cite{Tantalou2003} and~\cite{Spyropoulos2005})
+argued that AG infinitive clauses may valuate their Person head locally or
+externally.
+For them to be locally evaluated, a ``discourse prominent'' element, not present
+in the infinitive clause, must be supplied in the form of an optional accusative
+\emph{pro}, which would be the case of~\ref{gloss:noattr} sentences.
+Otherwise, the caseless \textsc{pro} would probe for case until it got it from
+the matrix constituent which controls it, thus the case agreement
+in~\ref{gloss:attr} would surface.
+The cause for case attraction, under this model, would be the lack of a
+``discourse prominent'' element available to be represented by an accusative
+\emph{pro} in the infinitive clause.
+Similarly to the philologists' ``emphasis'' explanation, however, the
+``discourse prominence'' does not comes with empirical evidence or clear
+definition.
+
+The issue of ``emphasis'', ``focus'' and ``discourse prominence'' is not just a
+shortcoming or unsatisfactory limit of scope in the works on case attraction.
+It is also a measuring issue: there are no metrics for \emph{emphaticness} or
+\emph{prominence} and the approximating techniques available for studies on
+contemporary languages, namely the experimental techniques ranging from
+interviews and questionnaires all the way to eye-tracking and reaction timing,
+are not feasible when it comes to \emph{corpus} languages such as AG\@.
+
+
+
+% chapter Introduction (end)  
+
+\chapter{A stochastic approach} % (fold)
+
+Using data from literary sources of Classical Greek, including oratory speeches,
+drama, historiography and philosophical dialogues from Attic and Jonic sources,
+I provide a data driven quantitative analysis of the contexts in which case
+attraction is a possible agreement \slash{} concord resolution. The addition of
+Jonic sources is due to the fact that it has been assumed that case attraction is
+more common if not the rule in the Attic dialect
+(e.g.~\cite[\emph{passim.}]{Buttmann1826} and~\cite[\emph{ad loc.}]{Cooper1997}).
+The data has been collected and annotated in a combination of manual and
+computational methods using the Diorisis Ancient Greek
+Corpus~\parencite{TheDiorisisAncientGreekCorpus}.
+
+A quantitative analysis of case attraction requires caution in the
+methodological approach, as semantic and pragmatic features are often latent,
+i.e.\ not explicitly present in the morpho-phonological level, and the use of
+proxies such as word classes, constituent distance and word order may hinder the
+quality of the results and the causal inference built upon them.
+As such, our analysis will rely on the causality analysis (e.g.~\cite{Pearl2009})
+and Bayesian modeling (e.g.~\cite{McElreath2020}), which I argue could
+enhance the results of data driven linguistic research by including at the
+quantitative analysis the qualitative knowledge built on the Ancient Greek
+and general linguistics.
+The analysis must be thus twofold. Firstly, it assess how the linguistic and
+extralinguistic factors could reasonably be causally linked with case
+attraction, so as to inform the statistical modeling and tell what effects are
+possible to estimate from the data.
+Later, a general linear model is build as to adequately estimate the direct
+effects of semantic and pragmatic factors on case attraction and the
+interactions between linguistic and extralinguistic variables.
+
+
+% chapter A stoachastic approach (end)
+
+\chapter{A causal model for case attraction} % (fold)
+
+Case attraction consists in a covariance of a specific morphological feature
+(case) between a controller (the oblique argument of a certain matrix verb)
+and a target (the predicative or attributive expression modifying the logical
+subject of the infinitive verb). Thus, it falls into the general concept of
+\emph{agreement}, in Corbett's framework (\citeyear[pp.\ 4--7]{Corbett2006}).
+
+By \emph{agreement}, we mean the general class of phenomena by which
+morphological features covary across a pair of tokens with a particular
+direction, i.e.:\ in which there are a controller and a target. Even there are
+indeed, as~\textcite{Norris2014,Norris2017b,Polinsky2016} argue, different mechanisms
+behind subject-verb agreement, DP-internal concord, and predicate case
+concord --- being case attraction an instance of the last one ---, our use of
+Corbett's framework will remain unaltered, as the differences observed between
+DP-internal concord and subject-verb agreement in the authors defending the
+contrasts are irrelevant for our analysis.
+
+
+
+By assuming that case attraction ($A$) is a sort of \emph{non\hyp{}canonical
+	agreement/concord}, it must be expected that factors known
+cross\hyp{}linguistically to trigger these \emph{phenomena} also affect $A$.
+Drawing a list of conditioning factors for \emph{non-canonical agreement} from
+\textcite[176--205]{Corbett2006}, we should thus expect that the following
+factors would change the likelihood of $A$.
+\begin{inparaenum}
+	\item thematic role (Θ) and animacy ($An$);
+	\item grammatical relation ($GR$) and case ($K$); and
+	\item communicative function ($CF$), and precedence ($Prec$).
+\end{inparaenum}
+
+% chapter A causal model for case attraction (end)
+
+
+

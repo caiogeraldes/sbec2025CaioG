@@ -1,0 +1,612 @@
+\documentclass[a4paper, 12pt, article]{memoir}
+
+\setlength{\footmarkwidth}{0em}
+\setlength{\footmarksep}{0em}
+\setlength{\thanksmarkwidth}{0em}
+\setlength{\thanksmarksep}{0em}
+
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage[tracking=true, nopatch=footnote]{microtype}
+\usepackage{scalefnt}
+\usepackage{csquotes}
+\usepackage[main=english]{babel}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz} %for all basic options
+\usepackage{tikz-qtree} %for simple tree syntax
+\usepgflibrary{arrows} %for arrow endings
+\usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usepackage{tikz-qtree}
+\usepackage{tree-dvips}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\setmainfont{Gentium Plus}
+\setmonofont[Scale=0.8]{Noto Sans}
+
+\babelprovide[import, onchar=ids fonts letters]{ancientgreek}
+% \babelfont[ancientgreek]{rm}{Brill}
+\babeltags{grc = ancientgreek}
+
+\usepackage{hyperref}
+\usepackage{linguex}
+\setlength{\Exlabelsep}{0.5em}
+\setlength{\SubExleftmargin}{1.5em}
+\usepackage{paralist}
+\usepackage{hyphenat}
+\hyphenation{
+  Κυ-ρι-α-κί-δη
+  Θεσ-σα-λο-νί-κη
+}
+
+\usepackage[normalem]{ulem}
+\RequirePackage{xcolor}
+\definecolor{green}{RGB}{16,87,87} % rgb(16,87,87)
+\definecolor{red}{RGB}{193, 11, 105} % rgb(193, 11, 105)
+\definecolor{yellow}{RGB}{218,222,104} % rgb(218,222,104)
+\definecolor{pink}{RGB}{243,179,145} % rgb(243,179,145)
+\definecolor{blue}{RGB}{161,184,206} % rgb(161,184,206)
+
+\RequirePackage{hyperref}%
+\hypersetup{%
+	colorlinks=true, % false: boxed links; true: colored links
+	linkcolor=green,  % color of internal links
+	citecolor=green,  % color of links to bibliography
+	filecolor=green,  % color of file links
+	urlcolor=green,
+}
+
+\usepackage[
+  backend=biber,
+  uniquename=init,
+  giveninits,
+  dashed=true,
+  style=authoryear-comp
+  ]{biblatex}
+\addbibresource{./biblio.bib}
+
+
+\title{Rethinking case attraction on Ancient Greek infinitive clauses}
+\author{
+  Caio B. A. Geraldes\thanks{Fundação de Amparo à Pesquisa do Estado de São
+  Paulo.}
+	\\\smallskip
+	<\href{mailto:caio.geraldes@usp.br}{\texttt{caio.geraldes@usp.br}}>
+}
+\date{June 25, 2025}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Introduction} % (fold)
+
+\paragraph{Good morning.} 
+Nominal predicates and adjuncts modifying subjects of complement infinitive
+clauses in Ancient Greek (AG) usually agree in case with their domain local
+subject, which has morphological accusative case assigned in the
+\emph{Accusativus cum Infinitivo} (\emph{AcI}) construction.
+When the subject of the infinitive is not overtly expressed but the main clause
+has a dative or genitive object which shares the reference of the infinitive
+subject, these predicates or adjuncts may either occur in the accusative or ``be
+attracted'' to the case of the main clause's object.
+
+\ex.\label{gloss:base}
+\a.\label{gloss:noattr}συμβουλεύει \textbf{τῷ Ξενοφῶντι ἐλθόντα} {εἰς Δελφοὺς}
+ἀνακοινῶσαι {τῷ θεῷ} {περὶ τῆς πορείας}.\\
+He advices Xenophon to go to Delphi and ask the god about the travel.
+(Xen.\ \emph{Anab.} 3.1.5)
+\b.\label{gloss:attr}ἀφῆκε \textbf{μοι ἐλθόντι} {πρὸς ὑμᾶς} λέγειν τἀληθῆ.\\
+He allowed me to go and speak the truth in front of you.
+(Xen.\ \emph{Hell.} 6.1.13)
+
+
+The literature on the subject, on the more philological side, from
+Port\hyp{}Royal (\cite{Lancelot1658,Lancelot1709}) up to the Cambridge
+Grammar~(\cite{Boas2019}), have focused on listing the contexts in which
+attraction may occur, whereas the transformational and minimalist approaches
+of~\textcite{Lakoff1970}, \textcite{Andrews1971}, \textcite{Quicoli1982},
+\textcite{Spyropoulos2005}, \textcite{Tantalou2003},
+\textcite{Sevdali2006,Sevdali2013} have mainly occupied themselves with
+proposing the structure that would allow the phenomenon to occur.
+What factors influence the decision between either resolution
+in~\ref{gloss:base} remains, however, largely unknown.
+
+\paragraph{[Self-deprecatingly]} I myself have, in the last edition of this
+same event, tried to present the distributional patterns that make the
+attraction,~\ref{gloss:attr}, more likely, showing that there is strong
+correlation between attraction and the classes of the matrix and infinitive
+verbs and the relative distance and position of the controller and target of
+agreement.
+
+Furthermore, I argued that these factors were \emph{proxies} to unobserved
+values, namely semantic and pragmatic features of the discourse setting, and
+that even in the absence of seen contrasting factors, precisely the case in the
+pair above~\ref{gloss:base}, the unseen discourse factors would be still causing
+one resolution to be at the very least more likely.
+
+\paragraph{[Introductingly]}
+I wasn't, however, quite convinced about neither the methods, the data, and,
+consequently, the quality of the results at which I had arrived.
+The main reason for this distrust is the fact that there could be interaction
+between the factors analysed for which the methods employed were not well designed
+to account, at least not with the amount of data available.
+A secondary motive was the classic adage ``correlation is not causation''.
+
+To solve these shortcomings, I have collected more data from a larger
+\emph{corpus} but more importantly swapped the quantitative framework for one
+capable of dealing with multivariate interactions, namely from ``out of the
+shelf'' statistical tests to generalized linear models, and, I believe more
+importantly, to for one capable of expressing the causality behind the
+statistical correlations.
+
+For this to work, however, we must take some steps back and build a causal
+model for what is the linguistic nature of case attraction and how properties of
+the sentence and its constituents might favor its occurrence.
+The following is a walk-through the construction of this causal model and its
+results.
+
+\chapter{The data} % (fold)
+
+Before stepping into the framework and analysis proper, a brief word on the
+empirical data supporting this research and any conclusion coming from it.
+The dataset is composed of 343 sentences drawn from the Attic literary
+\emph{corpus} and Herodotus.
+The sentences were extracted from the Diorisis Corpus
+(\cite{TheDiorisisAncientGreekCorpus,diorisis2021}) with help of the project's
+querying tool, Diorisis Search (\cite{DiorisisSearch}).
+Although comprehensive, the selection is by no means exhaustive.
+
+Each sentence has been annotated for values of interest, including authorship,
+literary genre, dialect as well as class of matrix and infinitive verb, class of
+controller and target, distance between constituents, etc.
+Parts of the annotation processes were conducted programmatically and later
+checked manually.
+
+Every model used in this work was processed using R (\cite{R}), the packages
+\texttt{tidyverse} (\cite{tidyverse}), \texttt{dagitty} (\cite{dagitty}),
+\texttt{ggdag} (\cite{ggdag}), and \texttt{rethinking} (\cite{McElreath2020}),
+as well as the software Stan~(\cite{StanReferenceManual,StanUserGuide}).
+
+% chapter The data (end)
+
+\chapter{Nature of attraction} % (fold)
+
+In the most abstract way possible, case attraction in infinitive clauses,
+exemplified by~\ref{gloss:attr}, is when two constituents, a controller and a
+target, produced in different domains of a sentence, one of the domains
+encompassing the other, covary in an specific feature, namely $[Case]$.
+This satisfies the definition of agreement in Corbett's typological assessment
+of the phenomenon across languages (\citeyear[pp.\ 4--7]{Corbett2006}).
+
+The lack of covariation of the $[Case]$ feature, seen in~\ref{gloss:noattr}, is
+generally understood as result of the application of \textbf{default} case
+concord rules of Ancient Greek.
+This assumes that the subject of infinitive clauses in Greek is always marked as
+accusative, even when not overtly expressed, and that convert constituents are
+also marked for $[Case]$ and its case is also available for nominal concord.
+
+The facts that the target has a choice of controller (either the overt oblique or
+de convert accusative) for agreement, that $[Case]$ is a non\hyp{}lexical
+features, that the agreement is optional, and that the domain is non\hyp{}local
+favours the interpretation that the agreement type of case attraction is less
+canonical than the general agreement type of Ancient Greek, following the
+criteria for canonical agreement in the same work of \textcite[pp.\
+8ff.]{Corbett2006}.
+
+If this assessment is sound, it is expected that attraction and
+non\hyp{}attraction behave as competing agreement resolutions, the former being
+less canonical and thus more likely to be conditioned.
+Conditions concerning the semantic and pragmatic properties of the controller,
+its precedence in relation to the target and the class of predication (i.e.:
+class of the domain) have been identified by Corbett.
+Although properties of the target were not shown to be favouring any resolution
+in agreement mismatches in Corbett's survey, case attraction might be one
+example of it, and I will hypothesize that properties of targets are competing
+causes of non\hyp{}canonical resolutions.
+A model of agreement in this framework may be represented as a direct acyclic
+graph, in which \textbf{A}ttraction ($\simeq$ Agreement) is caused by features
+of the \textbf{C}ontroller, \textbf{D}omain and \textbf{T}arget:
+
+\begin{center}
+	\includegraphics[width=0.40\textwidth]{../analysis/figs/dag_non_canonical_agreement.png}
+\end{center}
+
+These Controller, Domain and Target nodes represent clusters of linguistic
+factors, some of which we may observe directly (part of speech of the target),
+some might be implied (animacy) and some may remain unobserved (discourse
+function, as Ancient Greek does not overtly marks focuses or topics in the
+morphosyntax, at least not dependably).
+When an observed factor is included in the model, we split the cluster into
+two nodes: the one of observed factor and that containing rest of unobserved features.
+
+The three factors previously shown to correlate to case attraction represent
+each of these nodes:
+\begin{compactitem}
+	\item Copular infinitives imply a different domain of agreement, as they
+		select different predication classes;
+	\item Main verbs with semantic modality imply a different type of controller,
+		as they have higher subjecthood;
+	\item Word order and distance imply different status for the target, as
+		targets more to the left of the sentence are both structurally closer to the
+		controller and have a higher communicative function.
+\end{compactitem}
+
+% chapter Nature of attraction (end)
+
+\chapter{The domain of attraction} % (fold)
+
+Firstly, \textcite{KG} and others have associated case attraction with sentences
+in which the infinitival clause is a copular infinitive, einai or genesthai.
+Should the class of the infinitive favour either resolution of agreement?
+Probably not directly, as there is no reason linguistically it would.
+Copular infinitives, however, have a double effect on the agreement ``causes'':
+\begin{compactenum}
+\item they filter the possible relations between controller and target, as those are
+now more likely in primary predication, rather than secondary or appositive
+relation;
+\item this then delimits the option of target, making it more likely that they are nouns or adjectives, rather than participles.
+\end{compactenum}
+
+The these are known to affect agreement resolutions, and a couple of Hierarchies
+have been proposed to predict when the less canonical resolution (also called
+semantic agreement) is more likely to take place. The Agreement Hierarchy
+(\cite{Corbett1979}) and Predicate Hierarchy (\cite{Comrie1975}) have also been
+combined into the Agreement and Predicate Hierarchy shown
+in~\ref{hierar:agreementpredicate2}:
+
+\ex.\label{hierar:agreementpredicate2} Agreement and Predicate Hierarchies~(\cite[233]{Corbett2006}):\\
+\begin{tikzpicture}[baseline=0pt]
+    \node (attr) at (0, 0) {Attributive};
+    \node (pred) at (2.5, 0) {Predicative};
+    \node (predv) at (2.9, -0.4) {Verb};
+    \node (predp) at (3.5, 1) {Participle};
+    \node (preda) at (5, 2) {Adjective};
+    \node (predn) at (7, 2.5) {Noun};
+    \node (relp) at (5.6, 0) {Relative Pronoun};
+    \node (perp) at (9.1, 0) {Personal Pronoun};
+    \node (less) at (0, -1) {-};
+    \node (plus) at (9.1, -1) {+};
+    \draw[->, thick] (attr) to (pred);
+    \draw[->, thick] (pred) to (relp);
+    \draw[->, thick] (relp) to (perp);
+    \draw[->, thick] (pred) to (predp);
+    \draw[->, thick] (predp) to (preda);
+    \draw[->, thick] (preda) to (predn);
+    \draw[->] (less) to (plus);
+    \draw[->] (plus) to (less);
+    \node at (4.5, -1.5) {Likelihood of agreement with semantic justification};
+\end{tikzpicture}
+
+
+Adding this to our causal model, we may say that \textbf{A}ttraction is caused
+both by whether or not the relation between the controller and target is
+copular, and by the Part of Speech of the target, which is itself ``caused'' by
+the type of relation (copulas select more nominal predicates on average), and
+other unobserved properties of the \textbf{D}omain may also cause Attraction.
+
+By applying the do-calculus~(\cite{Pearl2009}), we learn that:
+the direct effect of the part of speech class requires us to
+adjust the statistic model by $C$, so that we block the non\hyp{}causal path $P
+\leftarrow C  \rightarrow A$.
+
+\begin{center}
+\includegraphics[width=0.55\linewidth]{../analysis/figs/dag_a.png}
+\end{center}
+
+
+
+\chapter{The controller of attraction} % (fold)
+
+Another association is that between case attraction and impersonal verbs.
+I have, however, shown that this association does not exist with every single
+impersonal verb, and that the verb δοκέω almost never heads a sentence with case
+attraction.
+The impersonal verbs which are actually associated with case attraction are
+those carrying modal semantics, such as ἐξαρκεῖ and ἔξεστί.
+Is it likely that the nature of the matrix verb directly affects the choice of
+agreement? I don't think so, but it may indirectly do, by defining which
+features the controller of agreement, the oblique object, has.
+These verbs have very little semantic information and the theta role and
+grammatical function of their oblique object seems to depend on the infinitive
+verb.
+We may say that σοι in~\Next, for example, is the subject of the sentence
+(a quirk subject of sorts) and has the thematic role of agent, much in contrast
+if the sentence was constructed with a verb of order or advice like συμβουλέυω,
+to which the oblique represents a recipient of the action, and if the sentence
+is constructed by δοκεῖ, to which the oblique represents an experiencer, ``the
+one who believes X to be better to do''.
+
+\ex. ἀλλ᾽ ἐξαρκῇ σοι τὰ ἔργα αὐτῶν ὁρῶντι σέβεσθαι καὶ τιμᾶν τοὺς θεούς.\\
+But it is enough for you to look at these deeds and respect the gods. 
+(Xen.\ \emph{Mem.} 4.3.13)
+
+This, however, only holds if the infinitive verb is not copula, otherwise, the
+thematic role is also that of an experiencer, meaning that \textbf{Th}ematic
+Role is a sister node of \textbf{P}art \textbf{o}f \textbf{S}peech, as it is
+``caused' by \textbf{C}opula.
+
+Adding to our previous DAG, the model will look like:
+
+\begin{center}
+\includegraphics[width=0.55\linewidth]{../analysis/figs/dag_b.png}
+\end{center}
+
+
+\chapter{Intermezzo: Authors and dialects} % (fold)
+
+I have argued previously that, in the corpus of Herodotus, Plato and Xenophon,
+the verbs of modal semantics were preferred by the authors when writing in the
+philosophical dialogue genre, and that this had implications if we were to estimate
+the effect of authorship or dialect on case attraction.
+If modality verbs affect the likelihood of attraction by means of selecting the
+thematic role of the controller, the author's idiosyncrasies
+in the use of attraction or their dialect base likelihood of using attraction
+would be biased in the data by the effects of the selection of the main verb in
+sentences where attraction may appear.
+
+We must thus add \textbf{Auth}orship, \textbf{Genre} and \textbf{Dia}lect to our
+causal model.
+
+\begin{center}
+\includegraphics[width=0.55\linewidth]{../analysis/figs/dag_c.png}
+\end{center}
+
+
+These last couple of additions have the following consequences:
+\begin{compactitem}
+\item to estimate the direct effect of \textbf{Th}ematic role, we must control
+	for \textbf{Copula} and either by \textbf{Genre} or \textbf{Auth}orship;
+\item to estimate the direct effect of \textbf{Cop}ula, we must control for
+	\textbf{P}art \textbf{o}f \textbf{S}peech, \textbf{Th}ematic role, and either
+	by \textbf{Genre} or \textbf{Auth}orship;
+\item to estimate the direct effect of \textbf{Dia}lect, we must control for
+	\textbf{Auth}orship;
+\item to estimate the direct effect of \textbf{Auth}orship, we must control for
+	\textbf{Dia}lect and by either \textbf{Genre} or \textbf{Cop}ula and
+	\textbf{Th}ematic role.
+\end{compactitem}
+
+\clearpage
+
+% chapter Intermezzo: Authors and dialects (end)
+
+
+% chapter The controller of attraction (end)
+
+\chapter{The target of attraction} % (fold)
+
+Finally, it has been long been proposed that case agreement is more likely when
+controller and target are very close to each other, and the likelihood
+diminishes as it grows.
+Furthermore, precedence of the target in relation to the controller
+seems to demand case attraction, such as in~\Next.
+
+\ex.ὡς \textbf{ἀγαθοῖς} τε \textbf{ὑμῖν} προσήκει εἶναι.\\
+That you may be good people. (Xen.\ \emph{Anab.} 3.2.11)
+
+
+Word order is highly associated in Ancient Greek with an important
+condition for non\hyp{}canonical agreement: communicative
+function.~\footnote{\textcite{Dik1995,Dik2007,Matic2003,Allan2012}}.
+Although associated with, however, word order does not completely determines
+communicative function of the target: it is not enough to guarantee that a
+certain constituent is a topic or focus.
+In other words, Word Order would only affect case attraction indirectly, by
+`causing' the communicative function of the target, function which is, however,
+unobservable.
+This means that the effect of word order over case attraction is statistically
+impossible to infer without a way to measure the communicative function of the
+target.
+
+The effect of distance, on the other hand, is measurable, so long as we control
+for its effect on word order: distance changes word order, so we must block the
+non\hyp{}causal path that flows from distance to attraction going through word
+order and communicative function.
+In the DAG\@:
+
+\begin{center}
+\includegraphics[width=0.60\linewidth]{../analysis/figs/dag_d.png}
+\end{center}
+\clearpage
+
+
+% chapter The target of attraction (end)
+
+\chapter{Analysis} % (fold)
+
+Fortunately, we don't need many different models to estimate the effects of many
+of the factors of interest.
+By applying the do-calculus, so long as we control for Word Order, we can
+estimate the direct effects of:
+\begin{inparaenum}
+	\item Part of Speech of the target;
+	\item Copular infinitive (i.e.:\ class of predication);
+	\item Thematic role of the oblique object;
+	\item Dialect;
+	\item Authorship; and
+	\item Distance.
+\end{inparaenum}
+The following generalized linear model allows us to do so:
+
+\begin{align*}
+	\text{A} &\sim \text{Bernoulli}(p_i)\\
+	\text{logit}(p_i) &= \alpha + 
+	\beta_{\text{Cop}}\text{Cop}_i + 
+	\beta_{\text{Dist}}\text{Dist}_i + \beta_{\text{WO}} \text{Prec}_i \\&+
+	\beta_{\text{PoS}}\sum^{PoS_{i}-1}_{j=0}{\delta_{j_{\text{PoS}}}} + \beta_{\text{Th}}\sum^{Th_{i}-1}_{j=0}{\delta_{j_{\text{Th}}}} \\&+
+		\beta_{\text{Auth}_{i}} + \beta_{\text{Dia}_i}\\
+	\alpha &\sim \text{Normal}(0, 1)\\
+	\beta_{\text{Cop}}, \beta_{\text{Dist}}, \beta_{\text{Prec}} &\sim \text{Normal}(0, 1)\\
+	\beta_{\text{PoS}}, \beta_{\text{Th}} &\sim \text{Normal}(0, 0.5)\\
+	\delta_{\text{PoS}}, \delta_{\text{Th}} &\sim \text{Dirichlet}(2)\\
+	\beta_{\text{Auth}} &= z_{\text{Auth}}*\sigma_{\text{Auth}}\\
+	\beta_{\text{Dia}} &= z_{\text{Dia}}*\sigma_{\text{Dia}}\\
+	z_{\text{Auth}}, z_{\text{Dia}} &\sim \text{Normal}(0,1)\\
+	\sigma_{\text{Auth}}, \sigma_{\text{Dia}} &\sim \text{Exponential}(1)
+\end{align*}
+
+A brief note on priors:
+Those are fairly flat, as there is no reason to believe we have weak or
+strong relationships in agreement phenomena.
+The effects of Part of Speech and Thematic Role (the scary ones with sums) are
+modeled as Ordered Categorical Predictors using the Dirichlet distribution.
+This is to represent the generally agreed idea that typological hierarchies have
+``cutoff'' points in between the nodes and that their effect increases
+``monotonically'' as we traverse between the nodes.
+The first node of each hierarchy will have the base effect $\beta_{X}$, and the
+following nodes will ``accumulate'' effect. Using Part of speech as an example,
+$\beta_{\text{PoS}}$ is the general effect of the part of speech over the
+likelihood of Attraction, and $\delta$ is a vector with values denoting how much
+going up from Participle to Adjective to Noun increases $\beta_{\text{PoS}}$.
+Participles do not change the effect, Adjectives add $\delta_1$ and Nouns adds
+both the effects $\delta_1 + \delta_2$.
+
+The effects Authorship and Dialect have non\hyp{}centered priors to preform
+partial pooling, so that we are able to estimate how much variation there is
+between each of their values.
+
+\section{Copula and Distance} % (fold)
+
+The most generally associated factors with attraction, namely the infinitive
+being a copula and the distance between controller and target show the expected
+effects:
+
+\begin{center}
+	\input{../analysis/tables/model_copula_dist_effects.tex}
+\end{center}
+
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.48\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{../analysis/figs/posterior_b_copula.png}
+	\captionof{figure}{Posterior distribution of $\beta_\text{Cop}$ with the 89\%
+	Highest Posterior Density Interval.}
+\end{minipage}%
+\hfill
+\begin{minipage}{.48\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{../analysis/figs/posterior_b_dist.png}
+	\captionof{figure}{Posterior distribution of $\beta_\text{Dist}$ with the 89\%
+	Highest Posterior Density Interval.}
+\end{minipage}
+\end{figure}
+
+The estimate effect for Distance is quite precise, and, to offer an intuition of
+what these values mean, the model predicts that by the time the controller and
+target are 8 words apart, on average, the fact that the infinitive is a copula
+is no longer relevant, i.e., the attraction is no longer a more likely outcome.
+If our causal model is sound, this is an important result for the typology of
+agreement in general, as the evidence from other languages predict that higher
+distances between controller and target would favor non\hyp{}canonical agreement
+resolutions (e.g.:\ modifiers of committee nouns in English are more likely to
+stand in the plural when far away from their controller, as shown by
+\textcite[98]{Levin2001}).\footnote{Other examples in
+\textcite[235]{Corbett2006}}.
+
+% section Copula and Distance (end)
+
+\section{Part of Speech and the Predicate Hierarchy} % (fold)
+
+The estimated effects are described in the following table and plot.
+
+\begin{center}
+	\input{../analysis/tables/model_domain_effects.tex}
+	\bigskip
+	\input{../analysis/tables/model_domain_cummulative_effects.tex}
+\end{center}
+
+
+\begin{center}
+	\includegraphics[width=0.70\linewidth]{../analysis/figs/model_domain_banddelta.png}
+\end{center}
+
+To put it into words, the data favours the idea that the Agreement and
+Predication Hierarchy holds for case attraction in Ancient Greek case
+attraction: as the target becomes more ``nominal'', the likelihood of attraction
+increases from basically neutral with participles up to highly positive.
+There is still a fair amount of uncertainty on how strong the effect is,
+however, and if the major cutoff point is between Participle and Adjective or
+between Adjective and Noun.
+
+
+\section{Thematic Role of the Controller} % (fold)
+
+The estimated effects are described in the following table and plot.
+
+\begin{center}
+	\input{../analysis/tables/model_theta_effects.tex}
+	\bigskip
+	\input{../analysis/tables/model_theta_cummulative_effects.tex}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=0.75\linewidth]{../analysis/figs/model_theta_banddelta.png}
+\end{center}
+
+Again, the results confirm the hypothesis that attraction is more likely to
+occur when the oblique object of the matrix clause is more ``canonically'' a
+subject.
+The effect is quite strong and the model is quite certain that when the matrix
+verb encodes modality and the thematic role of `Agent' is assigned by the
+infinitive verb, there is a big increase in the likelihood of attraction.
+
+% section Thematic Role of the Controller (end)
+
+\section{Dialect and Authorship} % (fold)
+
+The model estimates that Attic and Jonic are quite different on how often they
+employ case attraction, Jonic being predicted to use it much less often when all
+the other factors are the same.
+Although the model can not estimate a precise value (the standard deviation is
+on the higher end), it is very confident of the contrast.
+It also predicts that dialects should have a great amount of variation, as
+denoted by the parameter $\sigma_\text{Dia}$.
+
+\begin{center}
+	\input{../analysis/tables/model_dialect_effects.tex}
+\end{center}
+
+\begin{figure}[!h]
+\centering
+  \includegraphics[width=0.5\linewidth]{../analysis/figs/posterior_diff_dia.png}
+	\caption{Posterior distribution of the difference between
+		$\beta_\text{Attic}$ and $\beta_\text{Jonic}$ with the 89\%
+	Highest Posterior Density Interval.}
+\end{figure}
+\clearpage
+
+Finally, a word on authorship.
+After controlling for dialect and preferred choice of matrix verb, most of the
+authors are predicted to similar in their use of case attraction, with a curious
+tendency of Xenophon to be, on average, less likely to employ it.
+
+\begin{center}
+	\includegraphics[width=0.75\linewidth]{../analysis/figs/precis_author.png}
+\end{center}
+
+% section Authorship and Dialect (end)
+
+% chapter Analysis (end)
+
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+\printbibliography%
+\renewcommand*{\mkbibnamefamily}[1]{#1}
+
+\end{document}
